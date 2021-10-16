@@ -1,11 +1,16 @@
-import static java.rmi.Naming.rebind;
+import java.rmi.Naming;
+import java.rmi.registry.LocateRegistry;
 
 public class Servidor{
     Servidor(){
         try{
             Distancia d = new DistanciaImple();
-            String name = "RMI://192.168.1.106:24/DistanciaServer";
-            rebind(name, d);
+            String distance = "rmi://localhost/dist";
+
+            LocateRegistry.createRegistry(1099);
+            Naming.rebind(distance, d);
+
+            System.out.println("Aguardando valores para calcular distancia");
         }
         catch (Exception e){
             e.printStackTrace();

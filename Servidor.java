@@ -2,7 +2,7 @@ import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
 public class Servidor{
-    Servidor(){
+    ServidorDist(){
         try{
             Distancia d = new DistanciaImple();
             String distance = "rmi://localhost/dist";
@@ -17,6 +17,6 @@ public class Servidor{
         }
     }
     public static void main(String[] args){
-        new Servidor();
+        new ServidorDist();
     }
 }
